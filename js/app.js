@@ -472,6 +472,14 @@ function start(user) {
   store.on('presence', paintPresence);
   store.on('flushed', (n) => toast(`تم رفع ${n} تغيير كان بانتظار الاتصال.`, { kind: 'ok' }));
   store.on('writefail', () => toast('تعذّر الحفظ على السحابة. حُفظ محلياً وسيُرفع تلقائياً عند عودة الاتصال.', { kind: 'warn', ms: 6000 }));
+  store.on('denied', ({ path }) => toast(
+    path === 'roster'
+      ? 'صلاحيتك لا تسمح بتعديل قائمة الأطباء. اطلب من المدير فتح اللوحة مرة واحدة.'
+      : 'صلاحيتك الحالية لا تسمح بهذا التعديل. تواصل مع المدير.',
+    { kind: 'warn', ms: 7000 }));
+  store.on('needsSeed', () => toast(
+    'قائمة الأطباء غير منشورة على السحابة بعد. تُعرض القائمة الافتراضية حتى يفتحها مدير مرة واحدة.',
+    { kind: 'info', ms: 8000 }));
 
   /* remote edits: flash the specific cells, never rebuild the table */
   store.on('remote', (changes) => {

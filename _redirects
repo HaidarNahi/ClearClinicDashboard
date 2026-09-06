@@ -1,9 +1,9 @@
-# Identity + functions must resolve before the SPA catch-all
-/.netlify/*        /.netlify/:splat      200
-/api/session       /.netlify/functions/session   200
+# Netlify serves /.netlify/* (Identity + Functions) natively and forces HTTPS
+# on its own, so no rules are needed for either. A self-referential
+# /.netlify/* rule and a :host placeholder are both rejected as invalid.
 
-# Force the canonical https host
-http://:host/*     https://:host/:splat  301!
+# Friendly alias for the session endpoint
+/api/session   /.netlify/functions/session   200
 
-# SPA fallback — hash routing, so everything else serves the shell
-/*                 /index.html           200
+# SPA fallback — everything else serves the shell (hash routing)
+/*             /index.html                   200

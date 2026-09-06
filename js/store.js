@@ -74,8 +74,9 @@ export const store = {
     return false;
   },
 
-  _db: null, _fb: null, _refs: [], _presenceRef: null,
+  _db: null, _fb: null, _refs: [], _presenceRef: null, _seedTried: false,
   _queue: safeStore.get(LS_QUEUE, []) || [],
+  _deniedOnce: new Set(),
   _muted: new Set(),   // paths this device wrote — suppress our own echo
 
   /* ================= lifecycle ================= */
@@ -160,11 +161,25 @@ export const store = {
           .filter(d => d.active)
           .sort((a, b) => a.order - b.order);
       } else {
-        // first run on an empty database — seed it once
-        const seed = {};
-        SEED_ROSTER.forEach(d => { seed[d.id] = { name: d.name, handle: '', order: d.order, active: true }; });
-        this._write('roster', seed);
+        // Empty database. Only an admin is allowed to seed the roster, and
+        // only once per session.
+        //
+        // Firebase rolls back a rejected write locally, and that rollback
+        // re-fires this very listener with an still-empty snapshot. Retrying
+        // here would spin forever, so the attempt is gated behind a flag and
+        // behind the role that can actually succeed.
         this.roster = SEED_ROSTER.slice();
+        if (!this._seedTried && this.can('manage')) {
+          this._seedTried = true;
+          const seed = {};
+          SEED_ROSTER.forEach(d => { seed[d.id] = { name: d.name, handle: '', order: d.order, active: true }; });
+          this._write('roster', seed, { silent: true });
+        } else if (!this._seedTried) {
+          this._seedTried = true;
+          console.info('[store] roster is empty and you are not an admin — using the built-in list. ' +
+                       'Ask an admin to open the dashboard once to publish it.');
+          this.emit('needsSeed');
+        }
       }
       safeStore.set(LS_ROSTER, this.roster);
       this.emit('roster');
@@ -346,14 +361,27 @@ export const store = {
   },
 
   /** One scoped write. Queued if we're offline or cloud-less. */
-  _write(path, value) {
+  _write(path, value, { silent = false } = {}) {
     if (this.mode !== 'cloud' || !this._db) { this._enqueue(path, value); return; }
     this._setStatus('saving');
     const { ref, set } = this._fb;
     set(ref(this._db, path), value)
       .then(() => { if (this.status === 'saving') this._setStatus('live'); })
       .catch((err) => {
-        console.warn('[store] write failed', path, err?.code || err);
+        const code = String(err?.code || err?.message || err);
+        // PERMISSION_DENIED is permanent: the rules refuse this write and they
+        // will refuse it again. Queueing it would retry forever, so surface it
+        // once and drop it.
+        if (/permission[_ ]denied/i.test(code)) {
+          this._setStatus('live');
+          if (!silent && !this._deniedOnce.has(path)) {
+            this._deniedOnce.add(path);
+            console.warn('[store] permission denied for', path, '— your role cannot write here.');
+            this.emit('denied', { path });
+          }
+          return;
+        }
+        console.warn('[store] write failed', path, code);
         this._enqueue(path, value);
         this._setStatus(navigator.onLine ? 'local' : 'offline');
         this.emit('writefail', { path, error: err });

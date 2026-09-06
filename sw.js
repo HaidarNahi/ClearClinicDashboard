@@ -1,6 +1,6 @@
 /* Clear Pulse service worker — offline shell.
    Never caches Identity, functions, or the Firebase socket. */
-const V = 'cp-v1';
+const V = 'cp-v2';
 const SHELL = [
   '/', '/index.html', '/404.html', '/privacy.html',
   '/css/app.css', '/css/shell.css',
@@ -31,19 +31,26 @@ self.addEventListener('fetch', (e) => {
         const copy = r.clone();
         caches.open(V).then(c => c.put('/index.html', copy));
         return r;
-      }).catch(() => caches.match('/index.html'))
+      }).catch(async () => (await caches.match('/index.html')) || Response.error())
     );
     return;
   }
 
   // static: cache first, refresh in background
-  e.respondWith(
-    caches.match(e.request).then(hit => {
-      const net = fetch(e.request).then(r => {
-        if (r && r.status === 200) caches.open(V).then(c => c.put(e.request, r.clone()));
-        return r;
-      }).catch(() => hit);
-      return hit || net;
-    })
-  );
+  e.respondWith((async () => {
+    const hit = await caches.match(e.request);
+    if (hit) return hit;
+    try {
+      const r = await fetch(e.request);
+      if (r && r.status === 200) {
+        const copy = r.clone();
+        caches.open(V).then(c => c.put(e.request, copy)).catch(() => {});
+      }
+      return r;
+    } catch {
+      // Nothing cached and the network is gone — return a real Response
+      // rather than undefined, which respondWith rejects.
+      return Response.error();
+    }
+  })());
 });
