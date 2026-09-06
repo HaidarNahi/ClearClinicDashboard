@@ -1,0 +1,6 @@
+# Clear Pulse is a private internal tool for Clear Dental Clinic staff.
+# It holds employee performance data and must never be indexed.
+User-agent: *
+Disallow: /
+
+# No sitemap is published by design.

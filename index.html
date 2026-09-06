@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>كلير بَلس — لوحة أداء حسابات الأطباء | عيادات كلير للأسنان</title>
+<meta name="description" content="لوحة تحكم داخلية لعيادات كلير للأسنان: إدخال ومتابعة أداء حسابات الأطباء على إنستغرام بالتزامن اللحظي بين أجهزة الفريق، مع تحليلات ومقارنات شهرية.">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="theme-color" content="#753BBC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#131019" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<link rel="canonical" href="/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="عيادات كلير للأسنان">
+<meta property="og:title" content="كلير بَلس — لوحة أداء حسابات الأطباء">
+<meta property="og:description" content="لوحة تحكم داخلية لمتابعة أداء حسابات الأطباء على إنستغرام بالتزامن اللحظي.">
+<meta property="og:image" content="/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="شعار عيادات كلير للأسنان مع عنوان لوحة كلير بَلس">
+<meta property="og:locale" content="ar_IQ">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/icon-180.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="/css/app.css">
+<link rel="stylesheet" href="/css/shell.css">
+</head>
+<body>
+
+<a class="skip" href="#main">تخطَّ إلى المحتوى الرئيسي</a>
+
+<!-- ================= icon + mark sprite ================= -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <mask id="mk0"><rect width="200" height="200" fill="#fff"/><circle cx="131.1" cy="131.1" r="64" fill="#000"/></mask>
+    <mask id="mk1"><rect width="200" height="200" fill="#fff"/><circle cx="68.9"  cy="131.1" r="64" fill="#000"/></mask>
+    <mask id="mk2"><rect width="200" height="200" fill="#fff"/><circle cx="68.9"  cy="68.9"  r="64" fill="#000"/></mask>
+    <mask id="mk3"><rect width="200" height="200" fill="#fff"/><circle cx="131.1" cy="68.9"  r="64" fill="#000"/></mask>
+
+    <symbol id="mark" viewBox="0 0 200 200">
+      <g class="blade"><circle cx="131.1" cy="68.9"  r="58" mask="url(#mk0)"/></g>
+      <g class="blade"><circle cx="131.1" cy="131.1" r="58" mask="url(#mk1)"/></g>
+      <g class="blade"><circle cx="68.9"  cy="131.1" r="58" mask="url(#mk2)"/></g>
+      <g class="blade"><circle cx="68.9"  cy="68.9"  r="58" mask="url(#mk3)"/></g>
+    </symbol>
+
+    <g id="ic" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></g>
+    <symbol id="i-gauge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14 16 9"/><circle cx="12" cy="14" r="1.4" fill="currentColor" stroke="none"/><path d="M4.2 18a9 9 0 1 1 15.6 0"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16.5 5.2a3.2 3.2 0 0 1 0 5.9"/><path d="M18 14.4a6.5 6.5 0 0 1 3.5 5.6"/></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v16.5a1.5 1.5 0 0 0 1.5 1.5H21"/><path d="M7.5 15.5v2"/><path d="M12 10v7.5"/><path d="M16.5 6.5v11"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h3.5l2.5-7 4 14 2.6-7H21"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.6 9.3a2.5 2.5 0 1 1 3.3 2.4c-.6.2-.9.8-.9 1.4v.4"/><circle cx="12" cy="16.8" r=".9" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4.5 4.5"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18.5a4.5 4.5 0 0 1-.4-9 6 6 0 0 1 11.5 1.6A3.9 3.9 0 0 1 17.5 18.5Z"/></symbol>
+    <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.8 2.6 17a2 2 0 0 0 1.7 3h15.4a2 2 0 0 0 1.7-3L13.7 3.8a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4"/><circle cx="12" cy="16.6" r=".9" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v11"/><path d="m7.5 10.5 4.5 4.5 4.5-4.5"/><path d="M4 19.5h16"/></symbol>
+    <symbol id="i-print" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8.5V3.5h10v5"/><path d="M7 17.5H5a2 2 0 0 1-2-2v-4a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-2"/><rect x="7" y="14.5" width="10" height="6" rx="1"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 4.5h4a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-4"/><path d="M10 8 6 12l4 4"/><path d="M6 12h9"/></symbol>
+    <symbol id="i-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9.5 6 6 6-6"/></symbol>
+    <symbol id="i-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m14.5 6-6 6 6 6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="m9.5 6 6 6-6 6"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.2 5.2l1.4 1.4M17.4 17.4l1.4 1.4M18.8 5.2l-1.4 1.4M6.6 17.4l-1.4 1.4"/></symbol>
+    <symbol id="i-up" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 16 6-6 4 4 6-7"/><path d="M15 7h5v5"/></symbol>
+    <symbol id="i-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 8 6 6 4-4 6 7"/><path d="M15 17h5v-5"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-6.5 10-6.5S22 12 22 12s-3.6 6.5-10 6.5S2 12 2 12Z"/><circle cx="12" cy="12" r="2.6"/></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7.5-4.6-7.5-9.4A4.1 4.1 0 0 1 12 8a4.1 4.1 0 0 1 7.5 2.6C19.5 15.4 12 20 12 20Z"/></symbol>
+    <symbol id="i-msg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a7.5 7.5 0 0 1-10.9 6.7L4 20l1.8-5.4A7.5 7.5 0 1 1 20.5 11.5Z"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5.5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="18.5" r="2.5"/><path d="m8.2 10.8 7.6-4.1M8.2 13.2l7.6 4.1"/></symbol>
+    <symbol id="i-follow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="8" r="3.4"/><path d="M3.5 20a6.5 6.5 0 0 1 13 0"/><path d="M18.5 8v5M21 10.5h-5"/></symbol>
+    <symbol id="i-film" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><path d="M3 9.5h18M3 14.5h18M8.5 4.5v15M15.5 4.5v15"/></symbol>
+    <symbol id="i-image" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="15" rx="2.5"/><circle cx="8.5" cy="9.5" r="1.6"/><path d="m4 17 5-4.5 4.5 4 3-2.5 4.5 4"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2.5"/><path d="m3.5 7 8.5 6 8.5-6"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10" width="15" height="10.5" rx="2.5"/><path d="M8 10V7.5a4 4 0 0 1 8 0V10"/></symbol>
+    <symbol id="i-cmd" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6.5a2.5 2.5 0 1 0-2.5 2.5H17a2.5 2.5 0 1 0-2.5-2.5v11a2.5 2.5 0 1 0 2.5-2.5H7a2.5 2.5 0 1 0 2.5 2.5Z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6.5h16"/><path d="M9 6.5V4.8a1.3 1.3 0 0 1 1.3-1.3h3.4A1.3 1.3 0 0 1 15 4.8v1.7"/><path d="M6 6.5 6.9 19a2 2 0 0 0 2 1.9h6.2a2 2 0 0 0 2-1.9L18 6.5"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9a2.6 2.6 0 0 0-3.7-3.7L4 16.3Z"/><path d="m14.5 6.5 3.5 3.5"/></symbol>
+    <symbol id="i-refresh" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.5-5.8"/><path d="M20 4v4.5h-4.5"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5.3l3.3 2"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7.5-3.5 7.5-9V5.8L12 3 4.5 5.8V12c0 5.5 7.5 9 7.5 9Z"/><path d="m9 12 2.2 2.2L15.5 10"/></symbol>
+    <symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.8 2.6 5.3 5.9.9-4.2 4.1 1 5.8-5.3-2.8-5.3 2.8 1-5.8L3.5 10l5.9-.9Z"/></symbol>
+  </defs>
+</svg>
+
+<!-- ================= boot ================= -->
+<div id="boot" role="status" aria-live="polite">
+  <svg class="mark is-spinning" width="52" height="52" aria-hidden="true"><use href="#mark"/></svg>
+  <span class="sr">جارٍ التحميل…</span>
+</div>
+
+<!-- ================= auth gate ================= -->
+<div class="gate" id="gate" hidden>
+  <aside class="gate-aside">
+    <svg class="mark ghost-mark" viewBox="0 0 200 200" aria-hidden="true"><use href="#mark"/></svg>
+    <div class="row gap-12">
+      <svg class="mark" width="34" height="34" aria-hidden="true" style="color:#fff"><use href="#mark"/></svg>
+      <div>
+        <b style="font-size:16px;letter-spacing:-.02em">عيادات كلير للأسنان</b>
+        <div style="font-size:11px;opacity:.7;letter-spacing:.08em">CLEAR DENTAL CLINIC</div>
+      </div>
+    </div>
+    <h2 class="gate-quote">تقرير واحد. <span>كل الفريق.</span> لحظة واحدة.</h2>
+    <div class="gate-facts">
+      <div class="gate-fact"><span class="n">14</span><span class="l">حساب طبيب</span></div>
+      <div class="gate-fact"><span class="n">&lt;1s</span><span class="l">زمن المزامنة</span></div>
+      <div class="gate-fact"><span class="n">100%</span><span class="l">وصول محمي</span></div>
+    </div>
+  </aside>
+
+  <main class="gate-main">
+    <div class="gate-inner">
+      <div class="gate-brand">
+        <svg class="mark is-intro" width="36" height="36" aria-hidden="true"><use href="#mark"/></svg>
+        <div><b>كلير بَلس</b><span>لوحة أداء حسابات الأطباء</span></div>
+      </div>
+
+      <h1 id="gate-title">تسجيل الدخول</h1>
+      <p class="lede" id="gate-lede">هذه اللوحة مخصّصة لفريق القسم الإعلامي في عيادات كلير. سجّل الدخول بحسابك للمتابعة.</p>
+
+      <div id="gate-alert" hidden></div>
+
+      <form id="gate-form" novalidate autocomplete="on">
+        <div class="field" id="f-name" hidden>
+          <label for="in-name">الاسم الكامل</label>
+          <input class="input" id="in-name" name="name" type="text" autocomplete="name" placeholder="مثال: سارة الحسن">
+          <div class="err"></div>
+        </div>
+        <div class="field" id="f-email">
+          <label for="in-email">البريد الإلكتروني</label>
+          <input class="input" id="in-email" name="email" type="email" inputmode="email"
+                 autocomplete="username" required placeholder="name@cleardental.iq" dir="ltr">
+          <div class="err"></div>
+        </div>
+        <div class="field" id="f-pass">
+          <label for="in-pass">كلمة المرور</label>
+          <input class="input" id="in-pass" name="password" type="password"
+                 autocomplete="current-password" required placeholder="••••••••" dir="ltr">
+          <div class="err"></div>
+          <div class="hint" id="pass-hint" hidden>٨ أحرف على الأقل، وتتضمّن رقماً وحرفاً.</div>
+        </div>
+        <!-- bot trap: hidden from people, tempting to scripts -->
+        <div class="sr" aria-hidden="true">
+          <label for="in-company">لا تملأ هذا الحقل</label>
+          <input id="in-company" name="company" type="text" tabindex="-1" autocomplete="off">
+        </div>
+
+        <button class="btn btn-primary btn-block" id="gate-submit" type="submit">
+          <span>تسجيل الدخول</span>
+        </button>
+        <button class="btn btn-ghost btn-sm" id="gate-forgot" type="button">نسيت كلمة المرور؟</button>
+      </form>
+
+      <p class="gate-alt" id="gate-alt"></p>
+
+      <p class="gate-legal">
+        باستخدامك اللوحة فإنك توافق على <a href="/privacy.html">سياسة الخصوصية</a>.
+        البيانات المعروضة تخصّ موظفي العيادة وتُعامَل كبيانات داخلية سرّية.
+      </p>
+    </div>
+  </main>
+</div>
+
+<!-- ================= app ================= -->
+<div class="app" id="app">
+
+  <aside class="sidebar">
+    <div class="sb-brand">
+      <svg class="mark" width="30" height="30" aria-hidden="true"><use href="#mark"/></svg>
+      <div><b>كلير بَلس</b><span>عيادات كلير للأسنان</span></div>
+    </div>
+
+    <nav class="sb-nav" aria-label="التنقل الرئيسي">
+      <div class="sb-sec">التقرير</div>
+      <button class="navlink" data-nav="overview"><svg width="19" height="19"><use href="#i-gauge"/></svg><span>نظرة عامة</span></button>
+      <button class="navlink" data-nav="doctors"><svg width="19" height="19"><use href="#i-users"/></svg><span>الأطباء</span><span class="badge" id="nav-count">0</span></button>
+      <button class="navlink" data-nav="analytics"><svg width="19" height="19"><use href="#i-chart"/></svg><span>التحليلات</span></button>
+      <div class="sb-sec">الفريق</div>
+      <button class="navlink" data-nav="activity"><svg width="19" height="19"><use href="#i-activity"/></svg><span>سجل النشاط</span></button>
+      <button class="navlink" data-nav="help"><svg width="19" height="19"><use href="#i-help"/></svg><span>المساعدة</span></button>
+    </nav>
+
+    <div class="sb-foot">
+      <button class="userchip" id="userchip">
+        <span class="avatar" id="me-avatar">؟</span>
+        <span class="who"><b id="me-name">—</b><span id="me-role">—</span></span>
+        <svg width="16" height="16" style="color:var(--text-3)"><use href="#i-chev"/></svg>
+      </button>
+    </div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="mob-brand">
+        <svg class="mark" width="26" height="26" aria-hidden="true"><use href="#mark"/></svg>
+        <b>كلير بَلس</b>
+      </div>
+
+      <nav class="crumbs" aria-label="مسار التنقل">
+        <ol>
+          <li><a href="#/overview">كلير بَلس</a></li>
+          <li class="sep" aria-hidden="true">/</li>
+          <li><span id="crumb-month">—</span></li>
+          <li class="sep" aria-hidden="true">/</li>
+          <li aria-current="page" id="crumb-view">نظرة عامة</li>
+        </ol>
+      </nav>
+
+      <span class="spacer"></span>
+
+      <div class="presence" id="presence" title="أعضاء الفريق المتصلون الآن"></div>
+
+      <button class="sync" id="sync" data-state="connecting" title="حالة المزامنة">
+        <span class="dot dot-live"></span>
+        <span class="lbl">جارٍ الاتصال…</span>
+      </button>
+
+      <button class="btn btn-ghost btn-icon btn-sm" id="btn-cmdk" title="لوحة الأوامر (⌘K)" aria-label="لوحة الأوامر">
+        <svg width="18" height="18"><use href="#i-search"/></svg>
+      </button>
+      <button class="btn btn-ghost btn-icon btn-sm" id="btn-theme" title="تبديل المظهر" aria-label="تبديل المظهر الليلي">
+        <svg width="18" height="18"><use href="#i-moon"/></svg>
+      </button>
+    </header>
+
+    <main class="content" id="main">
+
+      <!-- ============ OVERVIEW ============ -->
+      <section class="view" id="v-overview" aria-labelledby="h-overview">
+        <div class="page-head">
+          <div>
+            <h1 id="h-overview">نظرة عامة</h1>
+            <p class="sub" id="ov-sub">ملخّص أداء حسابات الأطباء على إنستغرام.</p>
+          </div>
+          <div class="page-actions">
+            <div class="monthbar">
+              <button class="btn btn-ghost btn-icon" id="m-prev" aria-label="الشهر السابق"><svg width="17" height="17"><use href="#i-right"/></svg></button>
+              <select class="input" id="m-select" aria-label="اختيار الشهر"></select>
+              <button class="btn btn-ghost btn-icon" id="m-next" aria-label="الشهر التالي"><svg width="17" height="17"><use href="#i-left"/></svg></button>
+            </div>
+            <button class="btn btn-primary" data-open-entry><svg width="17" height="17"><use href="#i-plus"/></svg><span>إدخال بيانات</span></button>
+          </div>
+        </div>
+
+        <div class="kpis" id="ov-kpis"></div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-head">
+              <div><h3>اكتمال الإدخال</h3><div class="sub">الأطباء الذين تم إدخال بياناتهم لهذا الشهر</div></div>
+              <span class="pill pill-brand" id="ov-complete-pill">0 / 0</span>
+            </div>
+            <div class="card-pad" id="ov-complete"></div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div><h3>الأعلى تفاعلاً</h3><div class="sub">مرتّبون حسب إجمالي المشاهدات</div></div>
+              <button class="btn btn-ghost btn-sm" data-nav="doctors">عرض الكل</button>
+            </div>
+            <div class="card-pad" id="ov-top"></div>
+          </div>
+        </div>
+
+        <div class="card mt-20">
+          <div class="card-head">
+            <div><h3>أحدث النشاط</h3><div class="sub">آخر التعديلات من الفريق</div></div>
+            <button class="btn btn-ghost btn-sm" data-nav="activity">السجل الكامل</button>
+          </div>
+          <div class="card-pad"><div class="feed" id="ov-feed"></div></div>
+        </div>
+      </section>
+
+      <!-- ============ DOCTORS ============ -->
+      <section class="view" id="v-doctors" aria-labelledby="h-doctors">
+        <div class="page-head">
+          <div>
+            <h1 id="h-doctors">الأطباء</h1>
+            <p class="sub">اضغط أي رقم لتعديله مباشرة، أو افتح بطاقة الطبيب لإدخال كامل.</p>
+          </div>
+          <div class="page-actions">
+            <button class="btn btn-outline btn-sm" id="btn-validate" title="فحص صحة البيانات (V)"><svg width="16" height="16"><use href="#i-shield"/></svg><span>فحص البيانات</span></button>
+            <button class="btn btn-outline btn-sm" id="btn-export"><svg width="16" height="16"><use href="#i-download"/></svg><span>تصدير</span></button>
+            <button class="btn btn-outline btn-sm" id="btn-print"><svg width="16" height="16"><use href="#i-print"/></svg><span>PDF</span></button>
+            <button class="btn btn-primary btn-sm" data-open-entry><svg width="16" height="16"><use href="#i-plus"/></svg><span>إدخال</span></button>
+          </div>
+        </div>
+
+        <div class="card mb-16">
+          <div class="card-pad row gap-12 wrap">
+            <div class="search grow">
+              <svg width="17" height="17"><use href="#i-search"/></svg>
+              <input class="input" id="dr-search" type="search" placeholder="ابحث باسم الطبيب…" aria-label="بحث باسم الطبيب">
+            </div>
+            <select class="input" id="dr-filter" style="max-width:200px" aria-label="تصفية">
+              <option value="all">كل الأطباء</option>
+              <option value="done">مكتمل الإدخال</option>
+              <option value="todo">بانتظار الإدخال</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head">
+            <div><h3>جدول الأداء</h3><div class="sub" id="dr-count">—</div></div>
+            <span class="pill pill-neu" id="dr-mode">قابل للتعديل</span>
+          </div>
+          <div class="tablewrap">
+            <table class="grid" id="dr-table">
+              <thead>
+                <tr>
+                  <th class="rank">#</th>
+                  <th class="sortable" data-sort="name">الطبيب <svg class="arrow" width="11" height="11"><use href="#i-chev"/></svg></th>
+                  <th class="sortable" data-sort="posts">بوستات <svg class="arrow" width="11" height="11"><use href="#i-chev"/></svg></th>
+                  <th class="sortable" data-sort="reels">ريلز <svg class="arrow" width="11" height="11"><use href="#i-chev"/></svg></th>
+                  <th class="sortable" data-sort="total">المجموع <svg class="arrow" width="11" height="11"><use href="#i-chev"/></svg></th>
+                  <th class="sortable" data-sort="followers">نمو المتابعين <svg class="arrow" width="11" height="11"><use href="#i-chev"/></svg></th>
+                  <th class="sortable" data-sort="shares">مشاركات <svg class="arrow" width="11" height="11"><use href="#i-chev"/></svg></th>
+                  <th class="sortable" data-sort="views">المشاهدات <svg class="arrow" width="11" height="11"><use href="#i-chev"/></svg></th>
+                  <th class="no-print"></th>
+                </tr>
+              </thead>
+              <tbody id="dr-body"></tbody>
+              <tfoot id="dr-foot"></tfoot>
+            </table>
+          </div>
+        </div>
+
+        <div id="dr-empty" hidden></div>
+      </section>
+
+      <!-- ============ ANALYTICS ============ -->
+      <section class="view" id="v-analytics" aria-labelledby="h-analytics">
+        <div class="page-head">
+          <div>
+            <h1 id="h-analytics">التحليلات</h1>
+            <p class="sub">مقارنات بصرية تتحدّث لحظياً مع كل إدخال جديد من الفريق.</p>
+          </div>
+        </div>
+        <div id="an-body"></div>
+      </section>
+
+      <!-- ============ ACTIVITY ============ -->
+      <section class="view" id="v-activity" aria-labelledby="h-activity">
+        <div class="page-head">
+          <div>
+            <h1 id="h-activity">سجل النشاط</h1>
+            <p class="sub">كل تعديل مسجَّل باسم صاحبه ووقته — للشفافية والمراجعة.</p>
+          </div>
+        </div>
+        <div class="card"><div class="card-pad"><div class="feed" id="ac-feed"></div></div></div>
+      </section>
+
+      <!-- ============ HELP ============ -->
+      <section class="view" id="v-help" aria-labelledby="h-help">
+        <div class="page-head">
+          <div>
+            <h1 id="h-help">المساعدة والأسئلة الشائعة</h1>
+            <p class="sub">كل ما يحتاجه الفريق لاستخدام اللوحة بثقة.</p>
+          </div>
+        </div>
+
+        <div class="alert alert-info mb-16" style="max-width:none">
+          <svg width="18" height="18"><use href="#i-clock"/></svg>
+          <div>
+            <b>التزامنا بوقت الاستجابة:</b>
+            أي مشكلة تقنية تُبلَّغ عبر البريد أدناه نردّ عليها خلال
+            <b>يوم عمل واحد</b> كحد أقصى، ومشاكل تعذُّر الحفظ أو فقدان البيانات خلال <b>ساعتين</b> في أوقات الدوام.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><div><h3>الأسئلة الشائعة</h3></div></div>
+          <div class="card-pad">
+            <div class="faq">
+              <details open>
+                <summary>كيف أعرف أن بياناتي حُفظت فعلاً؟ <svg class="chev" width="16" height="16"><use href="#i-chev"/></svg></summary>
+                <div class="ans">
+                  <p>انظر إلى مؤشّر الحالة أعلى الشاشة. عندما يكون <b>أخضر ومكتوب عليه «متزامن»</b> فبياناتك محفوظة على السحابة ووصلت لبقية الفريق.</p>
+                  <p>إذا ظهر <b>برتقالي «محلي فقط»</b> فهذا يعني أن الاتصال بالسحابة غير متاح، وبياناتك محفوظة على جهازك فقط وسيتم رفعها تلقائياً فور عودة الاتصال. لن نُظهر لك «تم الحفظ» إلا إذا حُفظ فعلاً.</p>
+                </div>
+              </details>
+              <details>
+                <summary>ماذا يحدث إذا عدّلت أنا وزميلي نفس الطبيب في نفس الوقت؟ <svg class="chev" width="16" height="16"><use href="#i-chev"/></svg></summary>
+                <div class="ans">
+                  <p>لا شيء يضيع. اللوحة تحفظ كل حقل على حدة، لا الجدول كاملاً، لذلك إذا عدّلت أنت «المشاهدات» وعدّل زميلك «الريلز» لنفس الطبيب فكلا التعديلين يُحفظان.</p>
+                  <p>وإذا عدّلتما نفس الحقل بالضبط، يبقى آخر تعديل ويظهر لك تنبيه بمن غيّره، مع إمكانية التراجع فوراً.</p>
+                </div>
+              </details>
+              <details>
+                <summary>أستخدم لوحة مفاتيح عربية — هل أكتب الأرقام بالعربي أم بالإنجليزي؟ <svg class="chev" width="16" height="16"><use href="#i-chev"/></svg></summary>
+                <div class="ans">
+                  <p>اكتب كما تشاء. اللوحة تفهم الأرقام العربية (٠١٢٣) والهندية (۰۱۲۳) والإنجليزية (0123) وتحوّلها تلقائياً، وتتجاهل الفواصل والمسافات.</p>
+                  <p>إذا أدخلت شيئاً غير رقمي فسيظهر تنبيه واضح بدلاً من تحويله إلى صفر بصمت.</p>
+                </div>
+              </details>
+              <details>
+                <summary>هل يستطيع أي شخص لديه الرابط رؤية بيانات الأطباء؟ <svg class="chev" width="16" height="16"><use href="#i-chev"/></svg></summary>
+                <div class="ans">
+                  <p>لا. الوصول محمي بتسجيل دخول عبر Netlify Identity، ولا يُعرض أي محتوى قبل التحقق من الهوية. الصفحة أيضاً مستثناة من محرّكات البحث.</p>
+                  <p>الصلاحيات ثلاث: <b>مشاهد</b> يقرأ فقط، <b>محرّر</b> يُدخل البيانات، <b>مدير</b> يدير الأطباء والصلاحيات.</p>
+                </div>
+              </details>
+              <details>
+                <summary>كيف أُصدِّر التقرير لـ Excel أو أطبعه؟ <svg class="chev" width="16" height="16"><use href="#i-chev"/></svg></summary>
+                <div class="ans">
+                  <p>من صفحة «الأطباء» اضغط <b>تصدير</b> لاختيار CSV (يفتح مباشرة في Excel بدعم كامل للعربية) أو JSON كنسخة احتياطية.</p>
+                  <p>زر <b>طباعة</b> يُخرج نسخة منسّقة للطباعة أو الحفظ كـ PDF، بدون أزرار أو عناصر تحكم.</p>
+                </div>
+              </details>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mt-20">
+          <div class="card-head"><div><h3>اختصارات لوحة المفاتيح</h3></div></div>
+          <div class="card-pad">
+            <div class="stack gap-8" id="help-keys"></div>
+          </div>
+        </div>
+
+        <div class="card mt-20">
+          <div class="card-head"><div><h3>الدعم والتواصل</h3></div></div>
+          <div class="card-pad stack gap-12">
+            <div class="row gap-12"><svg width="18" height="18" style="color:var(--accent)"><use href="#i-mail"/></svg>
+              <div><b>القسم الإعلامي</b><div class="txt-sm muted"><a href="mailto:media@cleardental.iq" dir="ltr">media@cleardental.iq</a></div></div></div>
+            <div class="row gap-12"><svg width="18" height="18" style="color:var(--accent)"><use href="#i-shield"/></svg>
+              <div><b>الخصوصية وحماية البيانات</b><div class="txt-sm muted"><a href="/privacy.html">اقرأ سياسة الخصوصية</a></div></div></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- bottom tab bar -->
+  <nav class="tabbar" aria-label="التنقل السريع">
+    <button class="tab" data-nav="overview"><svg width="20" height="20"><use href="#i-gauge"/></svg><span>عامة</span></button>
+    <button class="tab" data-nav="doctors"><svg width="20" height="20"><use href="#i-users"/></svg><span>الأطباء</span></button>
+    <button class="tab tab-fab" data-open-entry aria-label="إدخال بيانات"><span class="fab"><svg width="22" height="22"><use href="#i-plus"/></svg></span></button>
+    <button class="tab" data-nav="analytics"><svg width="20" height="20"><use href="#i-chart"/></svg><span>تحليلات</span></button>
+    <button class="tab" data-nav="activity"><svg width="20" height="20"><use href="#i-activity"/></svg><span>النشاط</span></button>
+  </nav>
+</div>
+
+<!-- ================= entry sheet ================= -->
+<div class="scrim" id="scrim" hidden></div>
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" hidden>
+  <div class="sheet-grab" id="sheet-grab" aria-hidden="true"><i></i></div>
+  <header class="sheet-head">
+    <span class="avatar avatar-lg" id="sheet-avatar">؟</span>
+    <div class="t">
+      <h2 id="sheet-title">—</h2>
+      <div class="sub" id="sheet-sub">—</div>
+    </div>
+    <button class="btn btn-ghost btn-icon" id="sheet-close" aria-label="إغلاق"><svg width="19" height="19"><use href="#i-x"/></svg></button>
+  </header>
+  <div class="sheet-body" id="sheet-body"></div>
+  <footer class="sheet-foot">
+    <button class="btn btn-outline" id="sheet-prev" aria-label="الطبيب السابق"><svg width="17" height="17"><use href="#i-right"/></svg></button>
+    <button class="btn btn-primary" id="sheet-save"><svg width="17" height="17"><use href="#i-check"/></svg><span>حفظ ومزامنة</span></button>
+    <button class="btn btn-outline" id="sheet-next" aria-label="الطبيب التالي"><svg width="17" height="17"><use href="#i-left"/></svg></button>
+  </footer>
+</div>
+
+<div class="toasts" id="toasts" role="status" aria-live="polite"></div>
+<div id="cmdk-root"></div>
+
+<script type="module" src="/js/app.js"></script>
+<noscript>
+  <div style="padding:40px;text-align:center;font-family:system-ui">
+    <h1>يتطلّب تشغيل JavaScript</h1>
+    <p>هذه اللوحة تفاعلية وتحتاج إلى تفعيل JavaScript في المتصفح لعرض البيانات ومزامنتها.</p>
+  </div>
+</noscript>
+</body>
+</html>

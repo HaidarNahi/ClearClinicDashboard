@@ -1,0 +1,312 @@
+/* ==========================================================================
+   Clear Pulse — design system
+   Brand purple #753BBC and ink #1E2123 sampled directly from the clinic logo.
+   Neutrals are shifted slightly toward violet so greys read as chosen.
+   ========================================================================== */
+
+:root {
+  /* brand ramp, built around the exact logo purple at 600 */
+  --b50:  #F7F3FD;
+  --b100: #EDE2F9;
+  --b200: #DAC6F2;
+  --b300: #BE9BE7;
+  --b400: #9E6DD8;
+  --b500: #8850C9;
+  --b600: #753BBC;
+  --b700: #5F2F9A;
+  --b800: #4A2578;
+  --b900: #331A54;
+
+  /* violet-shifted neutrals */
+  --n0:   #FFFFFF;
+  --n50:  #FAF9FC;
+  --n100: #F2F0F7;
+  --n200: #E6E3EE;
+  --n300: #D0CBDC;
+  --n400: #A9A3B8;
+  --n500: #7D768C;
+  --n600: #5B5469;
+  --n700: #423C4E;
+  --n800: #2B2734;
+  --n900: #1E2123;
+
+  /* semantic — deliberately outside the brand hue */
+  --ok:        #16785B;
+  --ok-soft:   #E1F3EC;
+  --ok-line:   #A8DCC8;
+  --warn:      #A16505;
+  --warn-soft: #FBF0DA;
+  --warn-line: #EBD09A;
+  --dang:      #BE3149;
+  --dang-soft: #FBE7EA;
+  --dang-line: #F0BCC5;
+  --info:      #2A6DB2;
+  --info-soft: #E3EEF9;
+  --info-line: #B4D0EC;
+
+  /* roles */
+  --bg:        var(--n50);
+  --surface:   var(--n0);
+  --surface-2: var(--n100);
+  --surface-3: var(--n200);
+  --line:      var(--n200);
+  --line-2:    var(--n300);
+  --text:      var(--n900);
+  --text-2:    var(--n600);
+  --text-3:    var(--n500);
+  --accent:    var(--b600);
+  --accent-2:  var(--b700);
+  --accent-bg: var(--b50);
+  --accent-line:var(--b200);
+  --on-accent: #FFFFFF;
+
+  --ring: 0 0 0 3px color-mix(in srgb, var(--accent) 28%, transparent);
+  --sh-1: 0 1px 2px rgba(30,33,35,.06);
+  --sh-2: 0 1px 2px rgba(30,33,35,.05), 0 6px 16px -8px rgba(30,33,35,.16);
+  --sh-3: 0 2px 4px rgba(30,33,35,.06), 0 16px 40px -12px rgba(30,33,35,.24);
+  --sh-4: 0 4px 8px rgba(30,33,35,.08), 0 32px 64px -16px rgba(30,33,35,.32);
+
+  --r-xs: 5px;  --r-sm: 8px;  --r-md: 11px;
+  --r-lg: 15px; --r-xl: 20px; --r-full: 999px;
+
+  --ff: "IBM Plex Sans Arabic", "Segoe UI", system-ui, -apple-system, sans-serif;
+  --fm: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --sidebar: 248px;
+  --header-h: 58px;
+  --tabbar-h: 62px;
+
+  --ease: cubic-bezier(.32,.72,0,1);
+  --ease-out: cubic-bezier(.16,1,.3,1);
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:        #131019;
+    --surface:   #1B1723;
+    --surface-2: #232030;
+    --surface-3: #2C283A;
+    --line:      #322D42;
+    --line-2:    #423B55;
+    --text:      #EDEAF3;
+    --text-2:    #B4ADC2;
+    --text-3:    #8B839C;
+    --accent:    #A87AE2;
+    --accent-2:  #BE97ED;
+    --accent-bg: #241B33;
+    --accent-line:#3E2F58;
+    --on-accent: #1A1024;
+
+    --ok:        #4FC79B;  --ok-soft:  #10281F; --ok-line:  #1E4A3A;
+    --warn:      #E0AC4C;  --warn-soft:#2A2010; --warn-line:#4A3A1A;
+    --dang:      #F2788D;  --dang-soft:#2C1219; --dang-line:#4E2029;
+    --info:      #6BA8E5;  --info-soft:#101F2E; --info-line:#1E3950;
+
+    --sh-1: 0 1px 2px rgba(0,0,0,.4);
+    --sh-2: 0 1px 2px rgba(0,0,0,.4), 0 6px 16px -8px rgba(0,0,0,.6);
+    --sh-3: 0 2px 4px rgba(0,0,0,.4), 0 16px 40px -12px rgba(0,0,0,.7);
+    --sh-4: 0 4px 8px rgba(0,0,0,.5), 0 32px 64px -16px rgba(0,0,0,.8);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:        #131019;
+  --surface:   #1B1723;
+  --surface-2: #232030;
+  --surface-3: #2C283A;
+  --line:      #322D42;
+  --line-2:    #423B55;
+  --text:      #EDEAF3;
+  --text-2:    #B4ADC2;
+  --text-3:    #8B839C;
+  --accent:    #A87AE2;
+  --accent-2:  #BE97ED;
+  --accent-bg: #241B33;
+  --accent-line:#3E2F58;
+  --on-accent: #1A1024;
+
+  --ok:        #4FC79B;  --ok-soft:  #10281F; --ok-line:  #1E4A3A;
+  --warn:      #E0AC4C;  --warn-soft:#2A2010; --warn-line:#4A3A1A;
+  --dang:      #F2788D;  --dang-soft:#2C1219; --dang-line:#4E2029;
+  --info:      #6BA8E5;  --info-soft:#101F2E; --info-line:#1E3950;
+
+  --sh-1: 0 1px 2px rgba(0,0,0,.4);
+  --sh-2: 0 1px 2px rgba(0,0,0,.4), 0 6px 16px -8px rgba(0,0,0,.6);
+  --sh-3: 0 2px 4px rgba(0,0,0,.4), 0 16px 40px -12px rgba(0,0,0,.7);
+  --sh-4: 0 4px 8px rgba(0,0,0,.5), 0 32px 64px -16px rgba(0,0,0,.8);
+  color-scheme: dark;
+}
+
+/* ===================== base ===================== */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--ff);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overscroll-behavior-y: none;
+}
+h1,h2,h3,h4 { margin: 0; font-weight: 600; line-height: 1.25; letter-spacing: -.01em; text-wrap: balance; }
+p { margin: 0; }
+button, input, select, textarea { font: inherit; color: inherit; }
+button { cursor: pointer; background: none; border: none; padding: 0; }
+a { color: var(--accent); text-underline-offset: 3px; }
+[hidden] { display: none !important; }
+img, svg { max-width: 100%; }
+
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: var(--r-xs);
+}
+
+.num { font-family: var(--fm); font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+.sr {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+.skip {
+  position: absolute; inset-inline-start: 8px; top: -60px; z-index: 200;
+  background: var(--accent); color: var(--on-accent);
+  padding: 10px 16px; border-radius: var(--r-sm); font-weight: 600;
+  transition: top .18s var(--ease);
+}
+.skip:focus { top: 8px; }
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--line-2); border-radius: 99px; border: 3px solid var(--bg); }
+::-webkit-scrollbar-thumb:hover { background: var(--n400); }
+
+/* ===================== the mark ===================== */
+/* `fill` is inherited, so it reaches through the <use> shadow tree.
+   A descendant selector like `.mark .blade` would NOT — that shadow content
+   is unreachable from document CSS. Set it on the root and let it cascade. */
+.mark { display: block; flex: none; fill: currentColor; }
+.mark .blade { fill: currentColor; }
+.mark.is-spinning { animation: markspin 1.1s linear infinite; transform-origin: 50% 50%; }
+@keyframes markspin { to { transform: rotate(360deg); } }
+.mark.is-intro { animation: markin .6s var(--ease-out) backwards; transform-origin: 50% 50%; }
+@keyframes markin {
+  from { opacity: 0; transform: rotate(-70deg) scale(.55); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ===================== buttons ===================== */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 44px; padding: 0 16px;
+  border-radius: var(--r-md); border: 1px solid transparent;
+  font-size: 14px; font-weight: 600; white-space: nowrap;
+  transition: background .16s var(--ease), border-color .16s var(--ease),
+              color .16s var(--ease), transform .1s var(--ease), box-shadow .16s var(--ease);
+}
+.btn:active { transform: scale(.975); }
+.btn[disabled] { opacity: .5; pointer-events: none; }
+.btn svg { flex: none; }
+
+.btn-primary { background: var(--accent); color: var(--on-accent); box-shadow: var(--sh-1); }
+.btn-primary:hover { background: var(--accent-2); }
+.btn-ghost { background: transparent; color: var(--text-2); }
+.btn-ghost:hover { background: var(--surface-2); color: var(--text); }
+.btn-outline { background: var(--surface); color: var(--text); border-color: var(--line-2); }
+.btn-outline:hover { background: var(--surface-2); border-color: var(--n400); }
+.btn-soft { background: var(--accent-bg); color: var(--accent); border-color: var(--accent-line); }
+.btn-soft:hover { background: color-mix(in srgb, var(--accent) 14%, transparent); }
+.btn-danger { background: var(--dang-soft); color: var(--dang); border-color: var(--dang-line); }
+.btn-danger:hover { background: color-mix(in srgb, var(--dang) 16%, transparent); }
+.btn-sm { min-height: 36px; padding: 0 12px; font-size: 13px; border-radius: var(--r-sm); }
+.btn-icon { width: 44px; min-height: 44px; padding: 0; border-radius: var(--r-md); }
+.btn-icon.btn-sm { width: 36px; min-height: 36px; }
+.btn-block { width: 100%; }
+
+/* ===================== fields ===================== */
+.field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.field > label { font-size: 12.5px; font-weight: 600; color: var(--text-2); }
+.field .hint { font-size: 11.5px; color: var(--text-3); }
+.field .err { font-size: 12px; color: var(--dang); font-weight: 500; display: none; }
+.field.has-err .err { display: block; }
+.field.has-err .input { border-color: var(--dang); }
+
+.input {
+  width: 100%; min-height: 46px; padding: 10px 14px;
+  background: var(--surface); color: var(--text);
+  border: 1px solid var(--line-2); border-radius: var(--r-md);
+  transition: border-color .16s var(--ease), box-shadow .16s var(--ease), background .16s var(--ease);
+}
+.input::placeholder { color: var(--text-3); }
+.input:hover:not(:focus) { border-color: var(--n400); }
+.input:focus { outline: none; border-color: var(--accent); box-shadow: var(--ring); }
+.input[type="number"] { font-family: var(--fm); font-variant-numeric: tabular-nums; }
+.input:disabled, .input[readonly] { background: var(--surface-2); color: var(--text-3); cursor: not-allowed; }
+select.input {
+  appearance: none; padding-inline-end: 38px; cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5 6 6.5l5-5' stroke='%237D768C' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: left 14px center;
+}
+html[dir="rtl"] select.input { background-position: left 14px center; }
+
+.search { position: relative; }
+.search .input { padding-inline-start: 42px; }
+.search svg { position: absolute; inset-inline-start: 14px; top: 50%; transform: translateY(-50%); color: var(--text-3); pointer-events: none; }
+
+/* ===================== chips / pills ===================== */
+.pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 9px; border-radius: var(--r-full);
+  font-size: 11.5px; font-weight: 600; white-space: nowrap;
+  border: 1px solid transparent;
+}
+.pill-ok   { background: var(--ok-soft);   color: var(--ok);   border-color: var(--ok-line); }
+.pill-warn { background: var(--warn-soft); color: var(--warn); border-color: var(--warn-line); }
+.pill-dang { background: var(--dang-soft); color: var(--dang); border-color: var(--dang-line); }
+.pill-info { background: var(--info-soft); color: var(--info); border-color: var(--info-line); }
+.pill-neu  { background: var(--surface-2); color: var(--text-2); border-color: var(--line); }
+.pill-brand{ background: var(--accent-bg); color: var(--accent); border-color: var(--accent-line); }
+
+.dot { width: 7px; height: 7px; border-radius: 50%; flex: none; background: currentColor; }
+.dot-live { position: relative; }
+.dot-live::after {
+  content: ""; position: absolute; inset: -3px; border-radius: 50%;
+  border: 1.5px solid currentColor; opacity: .55;
+  animation: ripple 1.9s var(--ease-out) infinite;
+}
+@keyframes ripple {
+  0%   { transform: scale(.7); opacity: .6; }
+  100% { transform: scale(2.1); opacity: 0; }
+}
+
+/* ===================== cards ===================== */
+.card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: var(--r-lg); box-shadow: var(--sh-1);
+}
+.card-pad { padding: 18px 20px; }
+.card-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 15px 20px; border-bottom: 1px solid var(--line); flex-wrap: wrap;
+}
+.card-head h3 { font-size: 15.5px; }
+.card-head .sub { font-size: 12.5px; color: var(--text-3); margin-top: 1px; }
+
+.eyebrow {
+  font-family: var(--fm); font-size: 10.5px; font-weight: 500;
+  letter-spacing: .1em; text-transform: uppercase; color: var(--text-3);
+}
+
+/* ===================== reduced motion ===================== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

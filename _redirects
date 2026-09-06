@@ -1,0 +1,9 @@
+# Identity + functions must resolve before the SPA catch-all
+/.netlify/*        /.netlify/:splat      200
+/api/session       /.netlify/functions/session   200
+
+# Force the canonical https host
+http://:host/*     https://:host/:splat  301!
+
+# SPA fallback — hash routing, so everything else serves the shell
+/*                 /index.html           200

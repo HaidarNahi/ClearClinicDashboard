@@ -1,0 +1,27 @@
+# ---- secrets: never commit these ----
+# Firebase service-account keys are the crown jewels of this project.
+# They belong in Netlify environment variables only.
+*serviceAccount*.json
+*service-account*.json
+*firebase-adminsdk*.json
+.env
+.env.*
+!.env.example
+
+# ---- local / build ----
+.netlify/
+node_modules/
+dist/
+.cache/
+
+# ---- editor / OS ----
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*~
+
+# ---- generated exports ----
+*.xlsx
+*.pdf

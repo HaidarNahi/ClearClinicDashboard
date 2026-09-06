@@ -1,0 +1,20 @@
+{
+  "name": "كلير بَلس — لوحة أداء حسابات الأطباء",
+  "short_name": "كلير بَلس",
+  "description": "لوحة داخلية لمتابعة أداء حسابات أطباء عيادات كلير على إنستغرام بالتزامن اللحظي.",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FAF9FC",
+  "theme_color": "#753BBC",
+  "categories": ["business", "productivity"],
+  "icons": [
+    { "src": "/assets/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "/assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/icon-maskable.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
