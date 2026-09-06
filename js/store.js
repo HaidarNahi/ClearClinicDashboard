@@ -130,6 +130,10 @@ export const store = {
 
     this._db = dbMod.getDatabase(app);
     this.mode = 'cloud';
+    console.info(
+      `[store] cloud connected · role="${this.me.role}" · uid=${this.me.id}\n` +
+      `        If writes are denied, this role is why. Roles are baked into the\n` +
+      `        Netlify Identity token at LOGIN — change one, then sign out and in again.`);
 
     // real connection state, straight from the SDK — not an assumption
     dbMod.onValue(dbMod.ref(this._db, '.info/connected'), (snap) => {
@@ -169,15 +173,15 @@ export const store = {
         // here would spin forever, so the attempt is gated behind a flag and
         // behind the role that can actually succeed.
         this.roster = SEED_ROSTER.slice();
-        if (!this._seedTried && this.can('manage')) {
+        if (!this._seedTried && this.can('edit')) {
           this._seedTried = true;
           const seed = {};
           SEED_ROSTER.forEach(d => { seed[d.id] = { name: d.name, handle: '', order: d.order, active: true }; });
           this._write('roster', seed, { silent: true });
         } else if (!this._seedTried) {
           this._seedTried = true;
-          console.info('[store] roster is empty and you are not an admin — using the built-in list. ' +
-                       'Ask an admin to open the dashboard once to publish it.');
+          console.info('[store] roster is empty and your role is read-only — using the built-in list. ' +
+                       'Ask an editor or admin to open the dashboard once to publish it.');
           this.emit('needsSeed');
         }
       }
@@ -421,7 +425,10 @@ export const store = {
     safeStore.set(LS_ACT(this.month), this.activity);
     this.emit('activity');
     if (this.mode === 'cloud' && this._db) {
-      try { this._fb.push(this._fb.ref(this._db, `activity/${this.month}`), entry); } catch {}
+      try {
+        this._fb.push(this._fb.ref(this._db, `activity/${this.month}`), entry)
+          .catch(() => { /* the audit log is best-effort; never surface it */ });
+      } catch {}
     }
   },
 };

@@ -4,7 +4,7 @@
     ".write": false,
     "roster": {
       ".read": "auth != null",
-      ".write": "auth != null && auth.token.role === 'admin'",
+      ".write": "auth != null && (auth.token.role === 'admin' || !data.exists())",
       "$doctorId": {
         ".validate": "$doctorId.matches(/^[A-Za-z0-9_-]{1,40}$/)",
         "name": {

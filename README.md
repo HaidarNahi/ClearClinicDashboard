@@ -98,6 +98,14 @@ Netlify dashboard → **Identity → (user) → Edit settings → Roles**:
 
 A user with no role is treated as **editor**, so nobody is locked out before roles are set.
 
+**Roles are read at login.** After you add or change a role, that user must sign out and back
+in before it takes effect — the role is embedded in the Identity token, not looked up per
+request.
+
+The first time anyone opens the dashboard against an empty database, the doctor roster is
+published automatically. The rules allow that one bootstrap write from any editor; once the
+roster exists, only an admin can change it.
+
 ---
 
 ## 3. Turn on realtime sync (Firebase)
@@ -108,6 +116,12 @@ Free forever on the Spark plan. No credit card.
 1. <https://console.firebase.google.com> → **Add project** (disable Analytics — not needed).
 2. **Build → Realtime Database → Create Database**. Pick a region. Start in **locked mode**.
 3. Copy the database URL, e.g. `https://clear-pulse-default-rtdb.europe-west1.firebasedatabase.app`
+
+> **If writes are denied after setup**, the cause is almost always the role.
+> Netlify Identity bakes roles into the login token, so changing a role in the
+> dashboard does nothing until that user **signs out and signs back in**. The app
+> logs the role it was granted on startup — open the console and look for
+> `[store] cloud connected · role="…"`.
 
 ### 3b. Paste the security rules
 **Realtime Database → Rules** → select everything in the editor, delete it, paste the entire
