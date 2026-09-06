@@ -1,58 +1,79 @@
 {
-  "//": "Clear Pulse — Realtime Database security rules.",
-  "//1": "Paste into Firebase console > Realtime Database > Rules.",
-  "//2": "auth.token.role comes from the custom token minted in",
-  "//3": "netlify/functions/session.js, which itself trusts only the",
-  "//4": "Netlify-verified Identity user. The browser cannot forge it.",
-
   "rules": {
     ".read": false,
     ".write": false,
-
     "roster": {
       ".read": "auth != null",
       ".write": "auth != null && auth.token.role === 'admin'",
       "$doctorId": {
         ".validate": "$doctorId.matches(/^[A-Za-z0-9_-]{1,40}$/)",
-        "name":   { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 80" },
-        "handle": { ".validate": "newData.isString() && newData.val().length <= 40" },
-        "order":  { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 999" },
-        "active": { ".validate": "newData.isBoolean()" },
-        "$other": { ".validate": false }
+        "name": {
+          ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 80"
+        },
+        "handle": {
+          ".validate": "newData.isString() && newData.val().length <= 40"
+        },
+        "order": {
+          ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 999"
+        },
+        "active": {
+          ".validate": "newData.isBoolean()"
+        },
+        "$other": {
+          ".validate": false
+        }
       }
     },
-
     "months": {
       "$month": {
         ".read": "auth != null",
         ".validate": "$month.matches(/^[0-9]{4}-[0-9]{2}$/)",
-
         "$doctorId": {
           ".write": "auth != null && (auth.token.role === 'admin' || auth.token.role === 'editor') && root.child('roster').child($doctorId).exists()",
-
-          "posts":     { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000" },
-          "reels":     { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000" },
-          "followers": { ".validate": "newData.isNumber() && newData.val() >= -1000000 && newData.val() <= 100000000" },
-          "shares":    { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000" },
-          "views":     { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 10000000000" },
-
+          "posts": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000"
+          },
+          "reels": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000"
+          },
+          "followers": {
+            ".validate": "newData.isNumber() && newData.val() >= -1000000 && newData.val() <= 100000000"
+          },
+          "shares": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+          },
+          "views": {
+            ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 10000000000"
+          },
           "videos": {
             "$index": {
               ".validate": "$index.matches(/^[0-2]$/)",
-              "title":    { ".validate": "newData.isString() && newData.val().length <= 160" },
-              "date":     { ".validate": "newData.isString() && newData.val().length <= 40"  },
-              "views":    { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 10000000000" },
-              "likes":    { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1000000000"  },
-              "comments": { ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"   },
-              "$other":   { ".validate": false }
+              "title": {
+                ".validate": "newData.isString() && newData.val().length <= 160"
+              },
+              "date": {
+                ".validate": "newData.isString() && newData.val().length <= 40"
+              },
+              "views": {
+                ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 10000000000"
+              },
+              "likes": {
+                ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 1000000000"
+              },
+              "comments": {
+                ".validate": "newData.isNumber() && newData.val() >= 0 && newData.val() <= 100000000"
+              },
+              "$other": {
+                ".validate": false
+              }
             }
           },
-
-          "$other": { ".validate": false }
+          "$other": {
+            ".validate": false
+          }
         }
       }
     },
-
     "activity": {
       "$month": {
         ".read": "auth != null",
@@ -60,25 +81,46 @@
         "$entry": {
           ".write": "auth != null && !data.exists() && newData.exists()",
           ".validate": "newData.hasChildren(['at','uid','name','doctorId','field'])",
-          "uid":      { ".validate": "newData.val() === auth.uid" },
-          "at":       { ".validate": "newData.isNumber()" },
-          "name":     { ".validate": "newData.isString() && newData.val().length <= 80" },
-          "doctorId": { ".validate": "newData.isString() && root.child('roster').child(newData.val()).exists()" },
-          "field":    { ".validate": "newData.isString() && newData.val().length <= 24" },
-          "from":     { ".validate": "newData.isNumber() || newData.isString()" },
-          "to":       { ".validate": "newData.isNumber() || newData.isString()" },
-          "$other":   { ".validate": false }
+          "uid": {
+            ".validate": "newData.val() === auth.uid"
+          },
+          "at": {
+            ".validate": "newData.isNumber()"
+          },
+          "name": {
+            ".validate": "newData.isString() && newData.val().length <= 80"
+          },
+          "doctorId": {
+            ".validate": "newData.isString() && root.child('roster').child(newData.val()).exists()"
+          },
+          "field": {
+            ".validate": "newData.isString() && newData.val().length <= 24"
+          },
+          "from": {
+            ".validate": "newData.isNumber() || newData.isString()"
+          },
+          "to": {
+            ".validate": "newData.isNumber() || newData.isString()"
+          },
+          "$other": {
+            ".validate": false
+          }
         }
       }
     },
-
     "presence": {
       ".read": "auth != null",
       "$uid": {
         ".write": "auth != null && $uid === auth.uid",
-        "name":   { ".validate": "newData.isString() && newData.val().length <= 80" },
-        "at":     { ".validate": "newData.isNumber()" },
-        "$other": { ".validate": false }
+        "name": {
+          ".validate": "newData.isString() && newData.val().length <= 80"
+        },
+        "at": {
+          ".validate": "newData.isNumber()"
+        },
+        "$other": {
+          ".validate": false
+        }
       }
     }
   }

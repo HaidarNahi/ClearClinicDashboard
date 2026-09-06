@@ -110,8 +110,23 @@ Free forever on the Spark plan. No credit card.
 3. Copy the database URL, e.g. `https://clear-pulse-default-rtdb.europe-west1.firebasedatabase.app`
 
 ### 3b. Paste the security rules
-**Realtime Database → Rules** → paste the contents of [`firebase.rules.json`](firebase.rules.json)
-→ **Publish**.
+**Realtime Database → Rules** → select everything in the editor, delete it, paste the entire
+contents of [`firebase.rules.json`](firebase.rules.json) → **Publish**.
+
+The file is plain JSON with a single `rules` key and **no comments** — Firebase's rules parser
+rejects anything else at the root, so paste it exactly as-is.
+
+What the rules rely on:
+
+- `auth != null` — the user signed in with the custom token minted by
+  `netlify/functions/session.js`. No token, no read, no write.
+- `auth.uid` — the Netlify Identity user id, copied into the token server-side.
+- `auth.token.role` — `admin` / `editor` / `viewer`, also set server-side from the roles you
+  assign in the Netlify dashboard.
+
+All three are **signed into the token by the service-account private key**, which only ever
+exists in Netlify's environment. A browser can't forge or edit them — that is the whole point
+of minting the token on the server instead of trusting what the page claims about itself.
 
 These rules do the real enforcement: authenticated-only access, role-gated writes, per-field
 type and range validation, activity entries that can only be created (never edited) and only
@@ -121,12 +136,27 @@ under the writer's own uid, and presence writable only by its owner.
 1. Firebase **Project settings → Service accounts → Generate new private key**.
 2. A JSON file downloads. **Do not commit it.**
 
-### 3d. Enable custom-token sign-in
-Firebase **Authentication → Get started → Sign-in method** — no provider needs enabling for
-custom tokens, but Authentication itself must be initialised once.
+### 3d. Initialise Authentication
+Firebase console → left sidebar **Build → Authentication → Get started**.
+
+That single click is all that's needed. You do **not** have to enable Email/Password, Google,
+or any other provider — custom tokens don't use them. But the Authentication service has to be
+switched on once, or `signInWithCustomToken` fails with `auth/configuration-not-found`.
 
 ### 3e. Set Netlify environment variables
-Netlify → **Site configuration → Environment variables**:
+
+Netlify's UI has moved this around. Current path:
+
+> **Your site → Site configuration** (left sidebar) **→ Environment variables →
+> Add a variable → Add a single variable**
+
+Or go straight there: `https://app.netlify.com/sites/YOUR-SITE-NAME/configuration/env`
+
+Older Netlify UIs call it **Site settings → Build & deploy → Environment → Environment
+variables**. Both are the same place. Scope can stay "All scopes"; set values for
+"All deploy contexts".
+
+Add these four:
 
 | Variable | Value |
 |---|---|
@@ -135,7 +165,13 @@ Netlify → **Site configuration → Environment variables**:
 | `FIREBASE_API_KEY` | Project settings → General → Web API key |
 | `FIREBASE_PROJECT_ID` | your project id |
 
-Redeploy. The sync badge turns green and reads **متزامن**.
+Then **Deploys → Trigger deploy → Deploy site** — environment variables are only read at
+deploy time, so an existing deploy won't pick them up. When it finishes, the sync badge turns
+green and reads **متزامن**.
+
+If it still says **محلي فقط**, open the browser console: the app logs
+`[store] cloud unavailable — <reason>`. `session 401` means Identity isn't signing you in;
+`no-config` means one of the four variables is missing or the deploy predates them.
 
 > **Why a service account and not a public config?**
 > `netlify/functions/session.js` verifies the Netlify Identity user server-side, then mints a
